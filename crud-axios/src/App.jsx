@@ -1,42 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Header from "./Components/Header";
+import Home from "./Components/Home";
+import ListPages from "./Components/ListPage";
+import Footer from "./Components/Footer";
+import { UserContextProvider } from "./Components/context/usercontext";
 
 function App() {
-  const [users, setUsers] = useState([]);
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-    Axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(res => {
-        setUsers(res.data);
-      })
-      .catch(error => {
-        console.error('Error fetching users:', error);
-      });
-  }, []);
-
-  const postUser = () => {
-    Axios.post('https://jsonplaceholder.typicode.com/users', { name: name })
-      .then(res => {
-        console.log(res);
-        // After posting, you can update the users state with the new user if required
-        setUsers([...users, res.data]);
-      })
-      .catch(error => {
-        console.error('Error posting user:', error);
-      });
-  };
-
   return (
-    <div>
-      {users.map(u => (
-        <div key={u.id}>
-          {u.name}
-        </div>
-      ))}
-      <input type="text" value={name} onChange={e => setName(e.target.value)} />
-      <button onClick={postUser}>Post</button>
+    <div className="App">
+      <Header />
+      <UserContextProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ListPages" element={<ListPages />} />
+        </Routes>
+      </UserContextProvider>
+      <Footer />
     </div>
   );
 }
