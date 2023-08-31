@@ -3,32 +3,46 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="row my-3 bg-dark p-2 m-2">
-      <header className="d-flex justify-content-space-between py-3">
-        <ul className="nav nav-pills">
-          <li className="nav-item nav-link ">
-            <NavLink
-              to="/"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >
-              Home
-            </NavLink>
-          </li>
-          <li className="nav-item nav-link ">
-            <NavLink
-              to="/ListPages"
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active" : ""
-              }
-            >
-              Show users data
-            </NavLink>
-          </li>
-        </ul>
-      </header>
-    </div>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <NavLink className="navbar-brand" to="/">
+          <h1>CRUD using Axios</h1>
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <h3><li className="nav-item">
+              <NavLink
+                to="/"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Home
+              </NavLink>
+            </li></h3>
+            <h3><li className="nav-item">
+              <NavLink
+                to="/ListPages"
+                className="nav-link"
+                activeClassName="active"
+              >
+                Show Users Data
+              </NavLink>
+            </li></h3>
+          </ul>
+        </div>
+      </div>
+    </nav>
   );
 }
 

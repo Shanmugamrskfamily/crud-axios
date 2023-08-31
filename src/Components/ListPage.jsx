@@ -81,23 +81,23 @@ function ListPages() {
                 {editingUserId === user.id ? (
                   <button
                     type="button"
-                    className="btn btn-success"
+                    className="btn btn-warning"
                     onClick={handleEditSubmit}
                   >
-                    Save
+                    Update
                   </button>
                 ) : (
                   <>
                     <button
                       type="button"
-                      className="btn btn-primary me-2"
+                      className="btn btn-primary mt-2 me-4"
                       onClick={() => handleEditClick(user)}
                     >
                       Edit
                     </button>
                     <button
                       type="button"
-                      className="btn btn-danger"
+                      className="btn btn-danger mt-2 me-4"
                       onClick={() => handleDelete(user.id)}
                     >
                       Delete

@@ -6,37 +6,72 @@ function Home() {
     useUserContext();
   const formId = 11;
   return (
-    <div className="container col-xl-10 col-xxl-8 px-4 ">
-      <div className="row align-items-center g-lg-5">
+    <div className="container my-5">
+      <div className="row align-items-center">
         <div className="col-lg-7 text-center text-lg-start">
-          <h2 className="display-4 fw-bold lh-1 text-body-emphasis mb-1">
-            Enter Your <span className="data">Data</span>
-          </h2>
-          <img src="https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483604-2912020.png" />
+          
+          <img
+            src="https://cdni.iconscout.com/illustration/premium/thumb/contact-us-3483604-2912020.png"
+            className="img-fluid"
+            alt="Contact Us Illustration"
+          />
         </div>
         <div className="col-md-10 mx-auto col-lg-5">
-            <form className="p-4 p-md-5 border rounded-3 bg-body-tertiary" onSubmit={(e) => handleFormSubmit(e, { name, email, phone }, formId)}>
-            {/* Form inputs */}
-                <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="nameInput" placeholder="Enter the Name" fdprocessedid="u4sm3c" value={name} onChange={(e) => setName(e.target.value)}/>
-                    <label htmlFor="nameInput">Name</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input type="email" className="form-control" id="emailInput" placeholder="name@gmail.com" fdprocessedid="u4sm3c" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    <label htmlFor="emailInput">Email</label>
-                </div>
-                <div className="form-floating mb-3 text-center">
-                    <input type="number" className="form-control" id="floatingNumber" placeholder="Phone Number" fdprocessedid="4j7lvo" value={phone} onChange={(e) => setPhone(e.target.value)}/>
-                    <label htmlFor="floatingNumber">Phone Number</label>
-                </div>
-                <div className="checkbox mb-3">
-                    <label><input type="checkbox" value="remember-me" /> Remember me</label>
-                </div>
-                <button className="w-100 btn btn-lg btn-primary" type="submit"> Add To List</button>
-            </form>
+            <h2 className="display-4 fw-bold lh-1 text-white mb-4">
+              Enter Your <span className="text-danger">Data</span>
+            </h2>
+          <form
+            className="p-4 p-md-5 border rounded bg-light"
+            onSubmit={(e) => handleFormSubmit(e, { name, email, phone }, formId)}
+          >
+            
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="nameInput"
+                placeholder="Enter the Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
             </div>
+            <div className="mb-3">
+              <input
+                type="email"
+                className="form-control"
+                id="emailInput"
+                placeholder="name@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <input
+                type="number"
+                className="form-control"
+                id="floatingNumber"
+                placeholder="Phone Number"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="form-check mb-3">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="rememberCheck"
+              />
+              <label className="form-check-label" htmlFor="rememberCheck">
+                Remember me
+              </label>
+            </div>
+            <button className="btn btn-primary w-100" type="submit">
+              Add To List
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
   );
 }
 
