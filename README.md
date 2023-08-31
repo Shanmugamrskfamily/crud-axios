@@ -47,7 +47,8 @@ Open your browser and navigate to http://localhost:3000 to view the application.
 - React Router
 - Bootstrap
 - Contributing
-- Contributions are welcome! If you find any issues or want to add new features, feel free to open a pull request.
+
+Contributions are welcome! If you find any issues or want to add new features, feel free to open a pull request.
 
 ## License
 
